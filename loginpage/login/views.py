@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse,HttpResponseNotFound,HttpResponseRedirect
 from django.urls import reverse
+from django.template.loader import render_to_string
 # Create your views here.
 
 mon_cha ={
@@ -32,7 +33,20 @@ def mon_chall_num(request,month):
 def mon_chall(request,month):
     try:
         res_text = mon_cha[month]
-        return HttpResponse(res_text)
+        # res_data=render_to_string("login/login.html")
+        return render(request,"login/login.html",{
+            "text":res_text, 
+            "month_name":month
+        })
     except:
         return HttpResponseNotFound("nodata")
     
+def mon_sep(request):
+    # try:
+        months=list(mon_cha.keys())
+        return render(request,"login/Allmonth.html",
+                      {
+                          "months":months
+                      })
+    # except:
+    #     return HttpResponseNotFound("nodata")
