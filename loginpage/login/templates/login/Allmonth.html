@@ -1,16 +1,16 @@
 {% extends "base.html" %}
-{% block page_title %}
-Securra Heath
+
+
+{% block title%}
+<h1>Month</h1>
 {% endblock %} 
-{% block title %}
-bkjckdl
-{% endblock %} 
+
 {% block content%}
-<ul>
-    {%for month in months%}
-    <li>
-        <a href="{{month}}">{{month}}</a>
-    </li>
-    {% endfor %}
-</ul>
+    <ul>
+        {%for month in months%}
+        <li>
+            <a href="{{month}}">{{month}}</a>
+        </li>
+        {% endfor %}
+    </ul>
 {% endblock %} 
